@@ -46,7 +46,7 @@ switch length(H)
         c=basis\H(:);
 end
 
-error=0;
+error=[];
 if length(H)==6
     t=zeros(length(H));
     for i=1:4
