@@ -29,10 +29,14 @@ switch length(H)
             end
         end
     case 6
-        for i=1:4
-            for j=1:9
-                temp=kron(sigma{i},m{j});
-                basis(:,sub2ind([4,9],i,j))=temp(:);
+        for i=1:4                                    % qubit  first then qutrit
+%      for i=1:9                                     % qutrit first then qubit
+            for j=1:9                                % qubit  first then qutrit
+%       for j=1:4                                    % qubit  first then qutrit
+                temp=kron(sigma{i},m{j});            % qubit  first then qutrit
+%                temp=kron(m{i},sigma{j});           % qutrit first then qubit
+                basis(:,sub2ind([4,9],i,j))=temp(:); % qubit  first then qutrit
+%                basis(:,sub2ind([9,4],i,j))=temp(:);  % qutrit first then qubit
             end
         end
         c=basis\H(:);
